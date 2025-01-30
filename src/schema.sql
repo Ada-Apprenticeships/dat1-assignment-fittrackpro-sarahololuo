@@ -18,8 +18,10 @@ PRAGMA foreign_keys = ON;
 
 -- DROPS
 DROP TABLE members;
-DROP TABLE staff;
 DROP TABLE equipment;
+DROP TABLE class_schedule;
+DROP TABLE staff;
+DROP TABLE classes;
 DROP TABLE locations;
 
 -- TODO: Create the following tables:
@@ -109,6 +111,7 @@ CREATE TABLE equipment (
     FOREIGN KEY (location_id) REFERENCES locations(location_id)
 );
 
+-- Sample data for equipment
 INSERT INTO equipment (name, type, purchase_date, last_maintenance_date, next_maintenance_date, location_id)
 VALUES 
 ('Treadmill 1', 'Cardio', '2024-11-01', '2024-11-15', '2025-02-15', 1),
@@ -129,7 +132,50 @@ VALUES
 ('Stationary Bike 2', 'Cardio', '2024-11-16', '2025-01-20', '2025-04-20', 2);
 
 -- 5. classes
+CREATE TABLE classes (
+    class_id INTEGER PRIMARY KEY NOT NULL,
+    name TEXT NOT NULL,
+    description TEXT NOT NULL,
+    capacity INTEGER NOT NULL,
+    duration INTEGER NOT NULL,
+    location_id INTEGER,
+    FOREIGN KEY (location_id) REFERENCES locations(location_id)
+);
+
+-- Sample data for classes
+INSERT INTO classes (name, description, capacity, duration, location_id)
+VALUES 
+('Yoga Basics', 'Introductory yoga class', 20, 60, 1),
+('HIIT Workout', 'High-intensity interval training', 15, 45, 2),
+('Spin Class', 'Indoor cycling workout', 20, 50, 1),
+('Pilates', 'Core-strengthening exercises', 15, 55, 2),
+('Zumba', 'Dance-based cardio workout', 25, 60, 1),
+('Strength Training', 'Weight-based resistance training', 12, 45, 2);
+
 -- 6. class_schedule
+CREATE TABLE class_schedule (
+    schedule_id INTEGER PRIMARY KEY NOT NULL,
+    class_id INTEGER NOT NULL,
+    staff_id INTEGER NOT NULL,
+    start_time TEXT NOT NULL CHECK(start_time LIKE '____-__-__ __:__:__'),
+    end_time TEXT NOT NULL CHECK(end_time LIKE '____-__-__ __:__:__'),
+    FOREIGN KEY (class_id) REFERENCES classes(class_id)
+    FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
+);
+
+-- Sample data for class_schedule
+INSERT INTO class_schedule (class_id, staff_id, start_time, end_time)
+VALUES 
+(1, 1, '2024-11-01 10:00:00', '2024-11-01 11:00:00'),
+(2, 2, '2024-11-15 18:00:00', '2024-11-15 18:45:00'),
+(3, 6, '2024-12-03 07:00:00', '2024-12-03 07:50:00'),
+(4, 4, '2024-12-20 09:00:00', '2024-12-20 09:55:00'),
+(5, 8, '2025-01-05 19:00:00', '2025-01-05 20:00:00'),
+(6, 1, '2025-01-20 12:00:00', '2025-01-20 12:45:00'),
+(3, 6, '2025-02-01 14:00:00', '2025-02-01 14:50:00'),
+(5, 8, '2025-02-01 19:00:00', '2025-02-01 20:00:00'),
+(5, 4, '2025-02-15 09:00:00', '2025-02-15 10:00:00');
+
 -- 7. memberships
 -- 8. attendance
 -- 9. class_attendance
