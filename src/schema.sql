@@ -17,10 +17,11 @@ PRAGMA foreign_keys = ON;
 -- );
 
 -- DROPS
-DROP TABLE members;
 DROP TABLE equipment;
 DROP TABLE class_schedule;
 DROP TABLE staff;
+DROP TABLE memberships;
+DROP TABLE members;
 DROP TABLE classes;
 DROP TABLE locations;
 
@@ -177,6 +178,35 @@ VALUES
 (5, 4, '2025-02-15 09:00:00', '2025-02-15 10:00:00');
 
 -- 7. memberships
+CREATE TABLE memberships (
+    membership_id INTEGER PRIMARY KEY NOT NULL,
+    member_id INTEGER NOT NULL,
+    type TEXT NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    status TEXT NOT NULL,
+    FOREIGN KEY (member_id) REFERENCES members(member_id)
+ );
+
+ -- Sample data for memberships
+INSERT INTO memberships (member_id, type, start_date, end_date, status)
+VALUES
+(1, 'Premium', '2024-11-01', '2025-10-31', 'Active'),
+(2, 'Basic', '2024-11-05', '2025-11-04', 'Active'),
+(3, 'Premium', '2024-11-10', '2025-11-09', 'Active'),
+(4, 'Basic', '2024-11-15', '2025-11-14', 'Active'),
+(5, 'Premium', '2024-11-20', '2025-11-19', 'Active'),
+(6, 'Basic', '2024-11-25', '2025-11-24', 'Inactive'),
+(7, 'Premium', '2024-12-01', '2025-11-30', 'Active'),
+(8, 'Basic', '2024-12-05', '2025-12-04', 'Active'),
+(9, 'Premium', '2024-12-10', '2025-12-09', 'Active'),
+(10, 'Basic', '2024-12-15', '2025-12-14', 'Inactive'),
+(11, 'Premium', '2024-12-20', '2025-12-19', 'Active'),
+(12, 'Basic', '2024-12-25', '2025-12-24', 'Active'),
+(13, 'Premium', '2025-01-01', '2025-12-31', 'Active'),
+(14, 'Basic', '2025-01-05', '2026-01-04', 'Inactive'),
+(15, 'Premium', '2025-01-10', '2026-01-09', 'Active');
+
 -- 8. attendance
 -- 9. class_attendance
 -- 10. payments
