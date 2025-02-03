@@ -31,33 +31,6 @@
 
 -- 4. Find member with the most class registrations
 -- TODO: Write a query to find the member with the most class registrations
--- member_id, first_name, last_name, registration_count
--- class attendance has member_id and attendence status
--- members has first name and last name and member_id
--- GROUP BY to get subtotals?
-
--- INSERT INTO class_attendance (schedule_id, member_id, attendance_status)
--- VALUES 
--- (1, 1, 'Registered'),
--- (2, 1, 'Registered');
-
--- INITIAL SOLUTION
-    -- SELECT M.member_id, M.first_name, M.last_name, class_attendance.attendance_status,
-    -- COUNT(attendance_status) AS registration_count
-    -- FROM members M
-    -- JOIN class_attendance
-    -- ON M.member_id = class_attendance.member_id
-    -- WHERE class_attendance.attendance_status = 'Registered'
-    -- GROUP BY M.member_id;
-
--- Calculate highest registration count (only number)
-    -- SELECT MAX(registration_count)
-    -- FROM (
-    --     SELECT member_id, COUNT(*) AS registration_count
-    --     FROM class_attendance
-    --     WHERE attendance_status = 'Registered'
-    --     GROUP BY member_id
-    -- )
 
 -- SOLUTION
 -- SELECT M.first_name, M.last_name
@@ -75,6 +48,29 @@
 --         GROUP BY member_id
 --     )  AS max_registration_count 
 -- );
+
+-- INSERT INTO class_attendance (schedule_id, member_id, attendance_status)
+-- VALUES 
+-- (1, 1, 'Registered'),
+-- (2, 1, 'Registered');
+
+-- PRACTICE
+    -- SELECT M.member_id, M.first_name, M.last_name, class_attendance.attendance_status,
+    -- COUNT(attendance_status) AS registration_count
+    -- FROM members M
+    -- JOIN class_attendance
+    -- ON M.member_id = class_attendance.member_id
+    -- WHERE class_attendance.attendance_status = 'Registered'
+    -- GROUP BY M.member_id;
+
+-- Calculate highest registration count (only number) (PRACTICE)
+    -- SELECT MAX(registration_count)
+    -- FROM (
+    --     SELECT member_id, COUNT(*) AS registration_count
+    --     FROM class_attendance
+    --     WHERE attendance_status = 'Registered'
+    --     GROUP BY member_id
+    -- )
 
 
 -- 5. Find member with the least class registrations
@@ -101,3 +97,10 @@
 
 -- 6. Calculate the percentage of members who have attended at least one class
 -- TODO: Write a query to calculate the percentage of members who have attended at least one class
+
+-- SOLUTION
+-- SELECT (COUNT(DISTINCT CA.member_id)* 100.0 / COUNT(DISTINCT M.member_id)) AS attendance_percentage
+-- FROM members M
+-- LEFT JOIN class_attendance CA 
+-- ON M.member_id = CA.member_id 
+-- AND CA.attendance_status = 'Attended';
