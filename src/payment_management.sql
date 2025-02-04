@@ -30,5 +30,9 @@ PRAGMA foreign_keys = ON;
 
 -- 3. Find all day pass purchases
 -- TODO: Write a query to find all day pass purchases
+--  payment_id | amount | payment_date | payment_method |
 
 -- SOLUTION
+-- SELECT payment_id, amount, payment_date, payment_method
+-- FROM payments
+-- WHERE payment_type = 'Day pass';
