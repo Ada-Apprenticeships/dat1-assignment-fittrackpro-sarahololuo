@@ -24,9 +24,9 @@ DROP TABLE class_schedule;
 DROP TABLE personal_training_sessions;
 DROP TABLE member_health_metrics;
 DROP TABLE staff;
+DROP TABLE payments;
 DROP TABLE memberships;
 DROP TABLE attendance;
-DROP TABLE payments;
 DROP TABLE members;
 DROP TABLE classes;
 DROP TABLE locations;
@@ -273,7 +273,7 @@ CREATE TABLE payments (
     payment_id INTEGER PRIMARY KEY NOT NULL,
     member_id INTEGER NOT NULL,
     amount INTEGER NOT NULL,
-    payment_date DATE NOT NULL,
+    payment_date TEXT NOT NULL CHECK(payment_date LIKE '____-__-__ __:__:__'),
     payment_method TEXT NOT NULL,
     payment_type TEXT NOT NULL,
     FOREIGN KEY (member_id) REFERENCES members(member_id)
@@ -302,7 +302,7 @@ CREATE TABLE personal_training_sessions (
     session_id INTEGER PRIMARY KEY NOT NULL,
     member_id INTEGER NOT NULL,
     staff_id INTEGER NOT NULL,
-    session_date DATE NOT NULL,
+    session_date TEXT NOT NULL CHECK(session_date LIKE '____-__-__'),
     start_time TEXT NOT NULL CHECK(start_time LIKE '__:__:__'),
     end_time TEXT NOT NULL CHECK(end_time LIKE '__:__:__'),
     notes TEXT NOT NULL,
@@ -333,7 +333,7 @@ VALUES
 CREATE TABLE member_health_metrics (
     metric_id INTEGER PRIMARY KEY NOT NULL,
     member_id INTEGER NOT NULL,
-    measurement_date DATE NOT NULL,
+    measurement_date TEXT NOT NULL CHECK(measurement_date LIKE '____-__-__'),
     weight INTEGER NOT NULL,
     body_fat_percentage INTEGER NOT NULL,
     muscle_mass INTEGER NOT NULL,
@@ -360,7 +360,7 @@ VALUES
 CREATE TABLE equipment_maintenance_log (
     log_id INTEGER PRIMARY KEY NOT NULL,
     equipment_id INTEGER NOT NULL,
-    maintenance_date DATE NOT NULL,
+    maintenance_date TEXT NOT NULL CHECK(maintenance_date LIKE '____-__-__'),
     description TEXT NOT NULL,
     staff_id INTEGER NOT NULL,
     FOREIGN KEY (staff_id) REFERENCES staff(staff_id),
