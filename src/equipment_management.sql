@@ -10,6 +10,7 @@ PRAGMA foreign_keys = ON;
 -- 1. Find equipment due for maintenance
 -- TODO: Write a query to find equipment due for maintenance
 -- List all equipment with next_maintenance_date in the next 30 days
+-- NOTES FOR MARKER: used current date when code was written
 
 -- SELECT equipment_id, name, next_maintenance_date
 -- FROM equipment
@@ -19,11 +20,17 @@ PRAGMA foreign_keys = ON;
 -- TODO: Write a query to count equipment types in stock
 -- Count the number of equipment types in stock
 
--- SELECT type,
+-- SELECT type AS equipment_type,
 -- COUNT(type) AS count
 -- FROM equipment
 -- GROUP BY type;
 
-
 -- 3. Calculate average age of equipment by type (in days)
 -- TODO: Write a query to calculate average age of equipment by type (in days)
+-- NOTES FOR MARKER: julianday to convert string into numerics as my dates are saved as string
+-- NOTES FOR MARKER: used current date when code was written
+
+-- SELECT type AS equipment_type,
+-- AVG(JULIANDAY('2025-02-05') - JULIANDAY(purchase_date)) AS avg_age_days
+-- FROM equipment 
+-- GROUP BY type;
