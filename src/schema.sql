@@ -56,8 +56,8 @@ CREATE TABLE members (
     last_name TEXT NOT NULL,
     email TEXT NOT NULL,
     phone_number TEXT NOT NULL CHECK(LENGTH(phone_number) = 8),
-    date_of_birth DATE NOT NULL,
-    join_date DATE NOT NULL,
+    date_of_birth TEXT NOT NULL CHECK(date_of_birth LIKE '____-__-__'),
+    join_date TEXT NOT NULL CHECK(join_date LIKE '____-__-__'),
     emergency_contact_name TEXT NOT NULL,
     emergency_contact_phone TEXT NOT NULL CHECK(LENGTH(emergency_contact_phone) = 8)
  );
@@ -89,7 +89,7 @@ CREATE TABLE staff (
     email TEXT NOT NULL,
     phone_number TEXT NOT NULL CHECK(LENGTH(phone_number) = 8),
     position TEXT NOT NULL,
-    hire_date DATE NOT NULL ,
+    hire_date TEXT NOT NULL CHECK(hire_date LIKE '____-__-__'),
     location_id INTEGER,
     FOREIGN KEY (location_id) REFERENCES locations(location_id)
 );
@@ -111,9 +111,9 @@ CREATE TABLE equipment (
     equipment_id INTEGER PRIMARY KEY NOT NULL,
     name TEXT NOT NULL,
     type TEXT NOT NULL, 
-    purchase_date DATE NOT NULL,
-    last_maintenance_date DATE NOT NULL,
-    next_maintenance_date DATE NOT NULL,
+    purchase_date TEXT NOT NULL CHECK(purchase_date LIKE '____-__-__'),
+    last_maintenance_date TEXT NOT NULL CHECK(last_maintenance_date LIKE '____-__-__'),
+    next_maintenance_date TEXT NOT NULL CHECK(next_maintenance_date LIKE '____-__-__'),
     location_id INTEGER,
     FOREIGN KEY (location_id) REFERENCES locations(location_id)
 );
@@ -188,8 +188,8 @@ CREATE TABLE memberships (
     membership_id INTEGER PRIMARY KEY NOT NULL,
     member_id INTEGER NOT NULL,
     type TEXT NOT NULL,
-    start_date DATE NOT NULL,
-    end_date DATE NOT NULL,
+    start_date TEXT NOT NULL CHECK(start_date LIKE '____-__-__'),
+    end_date TEXT NOT NULL CHECK(end_date LIKE '____-__-__'),
     status TEXT NOT NULL,
     FOREIGN KEY (member_id) REFERENCES members(member_id)
  );
