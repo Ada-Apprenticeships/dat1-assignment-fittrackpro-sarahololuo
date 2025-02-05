@@ -17,6 +17,13 @@ PRAGMA foreign_keys = ON;
 
 -- 2. Count equipment types in stock
 -- TODO: Write a query to count equipment types in stock
+-- Count the number of equipment types in stock
+
+-- SELECT type,
+-- COUNT(type) AS count
+-- FROM equipment
+-- GROUP BY type;
+
 
 -- 3. Calculate average age of equipment by type (in days)
 -- TODO: Write a query to calculate average age of equipment by type (in days)
