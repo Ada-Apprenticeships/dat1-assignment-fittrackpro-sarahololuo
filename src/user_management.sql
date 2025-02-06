@@ -33,8 +33,14 @@ PRAGMA foreign_keys = ON;
 -- 4. Find member with the most class registrations
 -- TODO: Write a query to find the member with the most class registrations
 
+-- NOTES FOR MARKER: to allow for there to be a single clear most registered
+-- INSERT INTO class_attendance (schedule_id, member_id, attendance_status)
+-- VALUES 
+-- (1, 1, 'Registered'),
+-- (2, 1, 'Registered');
+
 -- SOLUTION
--- SELECT M.first_name, M.last_name
+-- SELECT M.member_id, M.first_name, M.last_name, COUNT(*) AS registration_count
 -- FROM members M
 -- JOIN class_attendance CA 
 -- ON M.member_id = CA.member_id
@@ -47,13 +53,9 @@ PRAGMA foreign_keys = ON;
 --         FROM class_attendance
 --         WHERE attendance_status = 'Registered'
 --         GROUP BY member_id
---     )  AS max_registration_count 
+--     ) AS max_registration_count 
 -- );
 
--- INSERT INTO class_attendance (schedule_id, member_id, attendance_status)
--- VALUES 
--- (1, 1, 'Registered'),
--- (2, 1, 'Registered');
 
 -- PRACTICE
     -- SELECT M.member_id, M.first_name, M.last_name, class_attendance.attendance_status,
@@ -78,7 +80,7 @@ PRAGMA foreign_keys = ON;
 -- TODO: Write a query to find the member with the least class registrations
 
 -- SOLUTION
--- SELECT M.first_name, M.last_name
+-- SELECT M.member_id, M.first_name, M.last_name, COUNT(*) AS registration_count
 -- FROM members M
 -- JOIN class_attendance CA 
 -- ON M.member_id = CA.member_id
@@ -93,7 +95,6 @@ PRAGMA foreign_keys = ON;
 --         GROUP BY member_id
 --     ) AS min_registration_count 
 -- );
-
 
 
 -- 6. Calculate the percentage of members who have attended at least one class

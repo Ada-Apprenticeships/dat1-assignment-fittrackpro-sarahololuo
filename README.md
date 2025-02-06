@@ -298,7 +298,7 @@ member_id | first_name | last_name | email | join_date
 
 ------
 ------
-#### 1.4. Find member with the most class registrations
+#### 1.4. Find member with the most class registrations (check at end)
 
 | Task                                          | Details                    |
 | --------------------------------------------- | -------------------------- |
@@ -311,7 +311,7 @@ member_id | first_name | last_name | registration_count
 
 ------
 ------
-#### 1.5. Find member with the least class registrations
+#### 1.5. Find member with the least class registrations (check at end)
 
 | Task                                           | Details                    |
 | ---------------------------------------------- | -------------------------- |
