@@ -80,7 +80,6 @@ PRAGMA foreign_keys = ON;
 -- 6. Calculate average number of classes per member
 -- TODO: Write a query to calculate average number of classes per member
 --  Calculate the average number of classes per member 
---  A single value representing the average number of classes per member. 
 -- NOTE FOR MARKER: counted all class registrations, counted all distinct members, divided registrtions by members
 
 -- SOLUTION
