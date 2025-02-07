@@ -60,6 +60,30 @@ PRAGMA foreign_keys = ON;
 
 -- 5. List top 5 most popular classes
 -- TODO: Write a query to list top 5 most popular classes
+-- NOTE FOR MARKER: the README.md file states that the query should list the top 3 most popular classes so I will go with top 3 instead of 5
+
+-- SOLUTION
+-- SELECT 
+--     classes.class_id,
+--     classes.name AS class_name,
+--     COUNT(class_attendance.member_id) AS registration_count
+-- FROM classes
+-- JOIN class_schedule 
+-- ON classes.class_id = class_schedule.class_id
+-- JOIN class_attendance
+-- ON class_schedule.schedule_id = class_attendance.schedule_id
+-- WHERE class_attendance.attendance_status = 'Registered'
+-- GROUP BY classes.class_id, classes.name
+-- ORDER BY registration_count DESC
+-- LIMIT 3;
 
 -- 6. Calculate average number of classes per member
 -- TODO: Write a query to calculate average number of classes per member
+--  Calculate the average number of classes per member 
+--  A single value representing the average number of classes per member. 
+-- NOTE FOR MARKER: counted all class registrations, counted all distinct members, divided registrtions by members
+
+-- SOLUTION
+-- SELECT 
+--     COUNT(class_attendance.class_attendance_id) / COUNT(DISTINCT class_attendance.member_id) AS avg_class_per_member
+-- FROM class_attendance;
