@@ -53,6 +53,11 @@ PRAGMA foreign_keys = ON;
 -- 4. Cancel a class registration
 -- TODO: Write a query to cancel a class registration
 
+-- SOLUTION
+-- DELETE FROM class_attendance
+-- WHERE schedule_id = 7 AND member_id = 2;
+
+
 -- 5. List top 5 most popular classes
 -- TODO: Write a query to list top 5 most popular classes
 
