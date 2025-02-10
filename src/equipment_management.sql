@@ -10,11 +10,10 @@ PRAGMA foreign_keys = ON;
 -- 1. Find equipment due for maintenance
 -- TODO: Write a query to find equipment due for maintenance
 -- List all equipment with next_maintenance_date in the next 30 days
--- NOTES FOR MARKER: used current date when code was written
 
 -- SELECT equipment_id, name, next_maintenance_date
 -- FROM equipment
--- WHERE next_maintenance_date BETWEEN DATE('2025-02-05') AND DATE('2025-03-07');
+-- WHERE next_maintenance_date BETWEEN DATE('now') AND DATE('2025-03-07');
 
 -- 2. Count equipment types in stock
 -- TODO: Write a query to count equipment types in stock
