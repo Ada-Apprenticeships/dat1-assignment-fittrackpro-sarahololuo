@@ -23,8 +23,20 @@ PRAGMA foreign_keys = ON;
 -- TODO: Write a query to calculate the average duration of gym visits for each membership type
 -- Calculate the average duration of gym visits for each membership type
 -- membership_type | avg_visit_duration_minutes
+-- memberships = type
+-- attendance = check_in_time and check_out_time
 
 -- SOLUTION
+-- SELECT Mships.type AS membership_type, AVG(('hh:mm:ss', A.check_out_time) - strftime('hh:mm:ss', A.check_in_time)) AS avg_visit_duration_minutes
+-- FROM memberships Mships
+-- JOIN attendance A
+-- ON Mships.member_id = A.member_id
+-- GROUP BY Mships.type
+-- ORDER BY avg_visit_duration_minutes DESC;
+
+
+
+
 
 -- 3. Identify members with expiring memberships this year
 -- TODO: Write a query to identify members with expiring memberships this year
