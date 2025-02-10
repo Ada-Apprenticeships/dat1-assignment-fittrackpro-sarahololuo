@@ -35,9 +35,9 @@ PRAGMA foreign_keys = ON;
 -- 3. Identify members with expiring memberships this year
 -- TODO: Write a query to identify members with expiring memberships this year
 -- List members whose memberships will expire within the next year
--- NOTE FOR MARKER:
+-- NOTE FOR MARKER: interpreted as within the next year, not within the current year
 
---SOLUTION (CHECK WITH TINA)
+--SOLUTION
 -- SELECT M.member_id, M.first_name, M.last_name, M.email, Mships.end_date
 -- FROM members M
 -- JOIN memberships Mships
