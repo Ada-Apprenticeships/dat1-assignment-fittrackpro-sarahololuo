@@ -79,10 +79,10 @@ PRAGMA foreign_keys = ON;
 
 -- 6. Calculate average number of classes per member
 -- TODO: Write a query to calculate average number of classes per member
---  Calculate the average number of classes per member 
--- NOTE FOR MARKER: counted all class registrations, counted all distinct members, divided registrtions by members
+-- Calculate the average number of classes per member 
+-- NOTE FOR MARKER: Based on interpretation of instructions, I counted all class registrations, counted all distinct members then divided registrtions by members
 
 -- SOLUTION
 -- SELECT 
---     COUNT(class_attendance.class_attendance_id) / COUNT(DISTINCT class_attendance.member_id) AS avg_class_per_member
+-- COUNT(class_attendance.class_attendance_id) / COUNT(DISTINCT class_attendance.member_id) AS avg_class_per_member
 -- FROM class_attendance;
