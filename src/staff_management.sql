@@ -21,11 +21,11 @@ PRAGMA foreign_keys = ON;
 -- NOTE FOR MARKER: Not checking for staff with position of 'trainer' as some pts are done by staff with position of 'manager'/'receptionist' etc
 
 -- SOLUTION
--- SELECT s.staff_id AS trainer_id, s.first_name || ' ' || s.last_name AS trainer_name, COUNT(pts.session_id) AS session_count
--- FROM staff s
--- JOIN personal_training_sessions pts
--- ON s.staff_id = pts.staff_id
--- WHERE role = 'Trainer' AND DATE(pts.session_date) BETWEEN DATE('now') AND DATE('now', '+30 days')
+-- SELECT S.staff_id AS trainer_id, S.first_name || ' ' || S.last_name AS trainer_name, COUNT(PTS.session_id) AS session_count
+-- FROM staff S
+-- JOIN personal_training_sessions PTS
+-- ON S.staff_id = PTS.staff_id
+-- WHERE role = 'Trainer' AND DATE(PTS.session_date) BETWEEN DATE('now') AND DATE('now', '+30 days')
 -- GROUP BY trainer_id, trainer_name
 -- HAVING session_count >= 1
 -- ORDER BY session_count DESC;

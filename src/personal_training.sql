@@ -12,9 +12,9 @@ PRAGMA foreign_keys = ON;
 -- List all personal training sessions for specific trainer "Ivy Irwin"
 
 -- SOLUTION
--- SELECT pts.session_id, s.first_name || ' ' || s.last_name AS member_name, pts.session_date, pts.start_time, pts.end_time 
--- FROM personal_training_sessions pts
--- JOIN staff s
--- ON pts.staff_id = s.staff_id
+-- SELECT PTS.session_id, S.first_name || ' ' || S.last_name AS member_name, PTS.session_date, PTS.start_time, PTS.end_time 
+-- FROM personal_training_sessions PTS
+-- JOIN staff S
+-- ON PTS.staff_id = S.staff_id
 -- WHERE member_name = 'Ivy Irwin'
 -- ORDER BY session_date;

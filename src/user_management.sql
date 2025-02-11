@@ -58,12 +58,12 @@ PRAGMA foreign_keys = ON;
 
 
 -- PRACTICE
-    -- SELECT M.member_id, M.first_name, M.last_name, class_attendance.attendance_status,
+    -- SELECT M.member_id, M.first_name, M.last_name, CA.attendance_status,
     -- COUNT(attendance_status) AS registration_count
     -- FROM members M
-    -- JOIN class_attendance
-    -- ON M.member_id = class_attendance.member_id
-    -- WHERE class_attendance.attendance_status = 'Registered'
+    -- JOIN class_attendance CA
+    -- ON M.member_id = CA.member_id
+    -- WHERE CAe.attendance_status = 'Registered'
     -- GROUP BY M.member_id;
 
 -- Calculate highest registration count (only number) (PRACTICE)

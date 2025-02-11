@@ -43,7 +43,7 @@ PRAGMA foreign_keys = ON;
 -- SELECT 
 --     locations.name AS location_name,
 --     COUNT(attendance.attendance_id) / COUNT(DISTINCT DATE(attendance.check_in_time)) AS avg_daily_attendance
--- FROM locations
+-- FROM locations 
 -- LEFT JOIN attendance 
 -- ON locations.location_id = attendance.location_id
 -- GROUP BY locations.name

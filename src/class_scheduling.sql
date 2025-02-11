@@ -12,14 +12,14 @@ PRAGMA foreign_keys = ON;
 -- class_id | class_name | instructor_name
 
 -- SOLUTION
--- SELECT classes.class_id, 
---     classes.name AS class_name, 
---     CONCAT(staff.first_name, ' ', staff.last_name) AS instructor_name
--- FROM classes
--- JOIN class_schedule 
--- ON classes.class_id = class_schedule.class_id
+-- SELECT C.class_id, 
+--     C.name AS class_name, 
+--     staff.first_name || ' ' || staff.last_name AS instructor_name
+-- FROM classes C
+-- JOIN class_schedule CS
+-- ON C.class_id = CS.class_id
 -- JOIN staff 
--- ON class_schedule.staff_id = staff.staff_id;
+-- ON CS.staff_id = staff.staff_id;
 
 -- 2. Find available classes for a specific date
 -- TODO: Write a query to find available classes for a specific date
@@ -27,15 +27,15 @@ PRAGMA foreign_keys = ON;
 
 -- SOLUTION
 -- SELECT 
---     classes.class_id,
---     classes.name,
---     class_schedule.start_time,
---     class_schedule.end_time,
---     classes.capacity AS available_spots
--- FROM classes
--- JOIN class_schedule 
--- ON classes.class_id = class_schedule.class_id
--- WHERE DATE(class_schedule.start_time) = '2025-02-01';
+--     C.class_id,
+--     C.name,
+--     CS.start_time,
+--     CS.end_time,
+--     C.capacity AS available_spots
+-- FROM classes C
+-- JOIN class_schedule CS
+-- ON C.class_id = CS.class_id
+-- WHERE DATE(CS.start_time) = '2025-02-01';
 
 
 -- 3. Register a member for a class
@@ -64,16 +64,16 @@ PRAGMA foreign_keys = ON;
 
 -- SOLUTION
 -- SELECT 
---     classes.class_id,
---     classes.name AS class_name,
---     COUNT(class_attendance.member_id) AS registration_count
--- FROM classes
--- JOIN class_schedule 
--- ON classes.class_id = class_schedule.class_id
--- JOIN class_attendance
--- ON class_schedule.schedule_id = class_attendance.schedule_id
--- WHERE class_attendance.attendance_status = 'Registered'
--- GROUP BY classes.class_id, classes.name
+--     C.class_id,
+--     C.name AS class_name,
+--     COUNT(CA.member_id) AS registration_count
+-- FROM classes C
+-- JOIN class_schedule CS
+-- ON C.class_id = CS.class_id
+-- JOIN class_attendance CA
+-- ON CS.schedule_id = CA.schedule_id
+-- WHERE CA.attendance_status = 'Registered'
+-- GROUP BY C.class_id, C.name
 -- ORDER BY registration_count DESC
 -- LIMIT 3;
 
