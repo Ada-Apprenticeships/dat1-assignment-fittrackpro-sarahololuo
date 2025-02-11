@@ -25,16 +25,26 @@ PRAGMA foreign_keys = ON;
 
 -- 3. Find the busiest day of the week based on gym visits
 -- TODO: Write a query to find the busiest day of the week based on gym visits
--- Identify the busiest day of the week based on gym visits
--- day_of_week | visit_count
+-- NOTE FOR MARKER= Wasn't sure on wether to limit the result set, kept it as is because the result set still identifies the busiest day due to it having the highest count of them all
 
 -- SOLUTION
 -- SELECT 
---     DATE(check_in_time) AS day_of_week,
+--     strftime('%w', check_in_time) AS day_of_week,
 --     COUNT(*) AS visit_count
 -- FROM attendance
+-- -- 0 = sunday, 1= monday, 2= tuesday, 3 = wednesday, 4 = thursday, 5 = friday, 6 = saturday
 -- GROUP BY day_of_week
 -- ORDER BY visit_count DESC;
 
 -- 4. Calculate the average daily attendance for each location
 -- TODO: Write a query to calculate the average daily attendance for each location
+
+-- SOLUTION
+-- SELECT 
+--     locations.name AS location_name,
+--     COUNT(attendance.attendance_id) / COUNT(DISTINCT DATE(attendance.check_in_time)) AS avg_daily_attendance
+-- FROM locations
+-- LEFT JOIN attendance 
+-- ON locations.location_id = attendance.location_id
+-- GROUP BY locations.name
+-- ORDER BY location_name;
