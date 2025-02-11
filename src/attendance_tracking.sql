@@ -9,10 +9,6 @@ PRAGMA foreign_keys = ON;
 
 -- 1. Record a member's gym visit
 -- TODO: Write a query to record a member's gym visit
--- Insert a new attendance record for member with ID 7 at Downtown Fitness
--- Downtown Fitness (location_id 1) 
--- Check-in time Current date and time 
--- No result set. Affects 1 row in attendance table.
 
 --SOLUTION
 -- INSERT INTO attendance 
@@ -21,6 +17,16 @@ PRAGMA foreign_keys = ON;
 
 -- 2. Retrieve a member's attendance history
 -- TODO: Write a query to retrieve a member's attendance history
+--  Get attendance history for member with ID 5
+-- attendance table = check in and check out
+-- visit_date | check_in_time | check_out_time
+
+--SOLUTION
+-- SELECT DATE(check_in_time) AS visit_date, TIME(check_in_time) AS check_in_time, TIME(check_out_time) AS check_out_time
+-- FROM attendance
+-- WHERE member_id = 5;
+
+
 
 -- 3. Find the busiest day of the week based on gym visits
 -- TODO: Write a query to find the busiest day of the week based on gym visits

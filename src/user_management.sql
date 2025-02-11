@@ -78,6 +78,7 @@ PRAGMA foreign_keys = ON;
 
 -- 5. Find member with the least class registrations
 -- TODO: Write a query to find the member with the least class registrations
+-- Multiple members have the same least number of registrations, returning one due to interpretation of what the output needs to be 
 
 -- SOLUTION
 -- SELECT M.member_id, M.first_name, M.last_name, COUNT(*) AS registration_count
@@ -94,7 +95,8 @@ PRAGMA foreign_keys = ON;
 --         WHERE attendance_status = 'Registered'
 --         GROUP BY member_id
 --     ) AS min_registration_count 
--- );
+-- )
+-- LIMIT 1;
 
 
 -- 6. Calculate the percentage of members who have attended at least one class
