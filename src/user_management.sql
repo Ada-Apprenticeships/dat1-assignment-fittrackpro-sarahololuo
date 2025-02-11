@@ -99,6 +99,7 @@ PRAGMA foreign_keys = ON;
 
 -- 6. Calculate the percentage of members who have attended at least one class
 -- TODO: Write a query to calculate the percentage of members who have attended at least one class
+-- NOTE FOR MARKER: interpreted as members featuring 'attended' only, not registered 
 
 -- SOLUTION
 -- SELECT (COUNT(DISTINCT CA.member_id)* 100.0 / COUNT(DISTINCT M.member_id)) AS attendance_percentage
