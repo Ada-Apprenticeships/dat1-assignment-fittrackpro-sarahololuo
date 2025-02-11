@@ -15,9 +15,9 @@ PRAGMA foreign_keys = ON;
 -- No result set. Affects 1 row in attendance table.
 
 --SOLUTION
--- INSERT INTO attendance (schedule_id, member_id, check_in_time)
--- VALUES (?, 7, DATE('now');
-
+-- INSERT INTO attendance 
+-- (member_id, location_id, check_in_time)
+-- VALUES (7, 1, datetime('now'));
 
 -- 2. Retrieve a member's attendance history
 -- TODO: Write a query to retrieve a member's attendance history

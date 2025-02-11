@@ -219,7 +219,7 @@ CREATE TABLE attendance (
     member_id INTEGER NOT NULL,
     location_id INTEGER NOT NULL,
     check_in_time TEXT NOT NULL CHECK(check_in_time LIKE '____-__-__ __:__:__'),
-    check_out_time TEXT NOT NULL CHECK(check_out_time LIKE '____-__-__ __:__:__'),
+    check_out_time TEXT CHECK(check_out_time LIKE '____-__-__ __:__:__'),
     FOREIGN KEY (member_id) REFERENCES members(member_id),
     FOREIGN KEY (location_id) REFERENCES locations(location_id)
 );
