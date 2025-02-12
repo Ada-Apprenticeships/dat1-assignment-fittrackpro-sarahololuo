@@ -26,10 +26,8 @@ PRAGMA foreign_keys = ON;
 
 -- 3. Calculate average age of equipment by type (in days)
 -- TODO: Write a query to calculate average age of equipment by type (in days)
--- NOTES FOR MARKER: julianday to convert string into numerics as my dates are saved as string
--- NOTES FOR MARKER: used current date when code was written
 
 -- SELECT type AS equipment_type,
--- AVG(JULIANDAY('2025-02-05') - JULIANDAY(purchase_date)) AS avg_age_days
+-- AVG(JULIANDAY('now') - JULIANDAY(purchase_date)) AS avg_age_days
 -- FROM equipment 
 -- GROUP BY type;
