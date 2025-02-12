@@ -42,60 +42,27 @@ PRAGMA foreign_keys = ON;
 -- SOLUTION
 -- SELECT M.member_id, M.first_name, M.last_name, COUNT(*) AS registration_count
 -- FROM members M
--- JOIN class_attendance CA 
+-- JOIN class_attendance CA
 -- ON M.member_id = CA.member_id
 -- WHERE CA.attendance_status = 'Registered'
 -- GROUP BY M.member_id, M.first_name, M.last_name
--- HAVING COUNT(*) = (
---     SELECT MAX(registration_count)
---     FROM (
---         SELECT member_id, COUNT(*) AS registration_count
---         FROM class_attendance
---         WHERE attendance_status = 'Registered'
---         GROUP BY member_id
---     ) AS max_registration_count 
--- );
-
-
--- PRACTICE
-    -- SELECT M.member_id, M.first_name, M.last_name, CA.attendance_status,
-    -- COUNT(attendance_status) AS registration_count
-    -- FROM members M
-    -- JOIN class_attendance CA
-    -- ON M.member_id = CA.member_id
-    -- WHERE CAe.attendance_status = 'Registered'
-    -- GROUP BY M.member_id;
-
--- Calculate highest registration count (only number) (PRACTICE)
-    -- SELECT MAX(registration_count)
-    -- FROM (
-    --     SELECT member_id, COUNT(*) AS registration_count
-    --     FROM class_attendance
-    --     WHERE attendance_status = 'Registered'
-    --     GROUP BY member_id
-    -- )
+-- ORDER BY registration_count DESC
+-- LIMIT 1;
 
 
 -- 5. Find member with the least class registrations
 -- TODO: Write a query to find the member with the least class registrations
 -- Multiple members have the same least number of registrations, returning one due to interpretation of what the output needs to be 
 
+
 -- SOLUTION
 -- SELECT M.member_id, M.first_name, M.last_name, COUNT(*) AS registration_count
 -- FROM members M
--- JOIN class_attendance CA 
+-- JOIN class_attendance CA
 -- ON M.member_id = CA.member_id
 -- WHERE CA.attendance_status = 'Registered'
 -- GROUP BY M.member_id, M.first_name, M.last_name
--- HAVING COUNT(*) = (
---     SELECT MIN(registration_count)
---     FROM (
---         SELECT member_id, COUNT(*) AS registration_count
---         FROM class_attendance
---         WHERE attendance_status = 'Registered'
---         GROUP BY member_id
---     ) AS min_registration_count 
--- )
+-- ORDER BY registration_count ASC
 -- LIMIT 1;
 
 
