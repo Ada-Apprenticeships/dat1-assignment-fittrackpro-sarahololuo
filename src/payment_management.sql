@@ -21,10 +21,10 @@ PRAGMA foreign_keys = ON;
 -- SELECT
 --     STRFTIME('%m-%Y', payment_date) AS month,
 --     SUM(amount) AS total_revenue
---     FROM payments
---     WHERE payment_type = 'Monthly membership fee'
---     GROUP BY month
---     ORDER BY month;
+--  FROM payments
+--  WHERE payment_type = 'Monthly membership fee'
+--  GROUP BY month
+--  ORDER BY month;
 
 
 -- 3. Find all day pass purchases
