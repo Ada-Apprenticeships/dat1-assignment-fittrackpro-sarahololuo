@@ -11,8 +11,7 @@ PRAGMA foreign_keys = ON;
 -- TODO: Write a query to record a member's gym visit
 
 --SOLUTION
--- INSERT INTO attendance 
--- (member_id, location_id, check_in_time)
+-- INSERT INTO attendance  (member_id, location_id, check_in_time)
 -- VALUES (7, 1, datetime('now'));
 
 -- 2. Retrieve a member's attendance history
@@ -32,7 +31,6 @@ PRAGMA foreign_keys = ON;
 --     strftime('%w', check_in_time) AS day_of_week,
 --     COUNT(*) AS visit_count
 -- FROM attendance
--- -- 0 = sunday, 1= monday, 2= tuesday, 3 = wednesday, 4 = thursday, 5 = friday, 6 = saturday
 -- GROUP BY day_of_week
 -- ORDER BY visit_count DESC;
 

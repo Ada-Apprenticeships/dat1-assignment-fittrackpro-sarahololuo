@@ -354,7 +354,7 @@ VALUES
 (8, '2025-01-25', 78.0, 19.0, 39.0, 24.2),
 (9, '2025-01-28', 72.5, 21.0, 36.0, 23.2),
 (10, '2025-01-28', 85.0, 16.0, 43.0, 25.0);
--- doesnt keep the 0s after decimal point, ask tina if that matters
+
 
 -- 13. equipment_maintenance_log
 CREATE TABLE equipment_maintenance_log (

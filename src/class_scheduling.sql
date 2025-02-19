@@ -84,5 +84,5 @@ PRAGMA foreign_keys = ON;
 
 -- SOLUTION
 -- SELECT 
--- COUNT(class_attendance.class_attendance_id) / COUNT(DISTINCT class_attendance.member_id) AS avg_class_per_member
+--     COUNT(class_attendance.class_attendance_id) / COUNT(DISTINCT class_attendance.member_id) AS avg_class_per_member
 -- FROM class_attendance;

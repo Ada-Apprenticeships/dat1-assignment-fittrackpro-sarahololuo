@@ -15,7 +15,6 @@ PRAGMA foreign_keys = ON;
 -- FROM staff
 -- ORDER BY role;
 
-
 -- 2. Find trainers with one or more personal training session in the next 30 days
 -- TODO: Write a query to find trainers with one or more personal training session in the next 30 days
 -- NOTE FOR MARKER: Not checking for staff with position of 'trainer' as some pts are done by staff with position of 'manager'/'receptionist' etc

@@ -52,7 +52,7 @@ PRAGMA foreign_keys = ON;
 
 -- 5. Find member with the least class registrations
 -- TODO: Write a query to find the member with the least class registrations
--- Multiple members have the same least number of registrations, limiting to one due to requirement to get the 'least' suggesting only one member
+--  NOTE TO MARKER: Multiple members have the same least number of registrations, limiting to one due to requirement to get the 'least' suggesting only one member
 
 
 -- SOLUTION
